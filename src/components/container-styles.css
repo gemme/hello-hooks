@@ -1,0 +1,30 @@
+.container  {
+  height: 150px;
+  width: 150px;
+  background-color: cornflowerblue;
+  border: darkcyan ;
+}
+
+.child1  {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background-color:darkmagenta;
+  border: darkcyan ;
+}
+
+.child2  {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background-color:darkorange;
+  border: darkcyan ;
+}
+
+.child3  {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background-color:yellowgreen;
+  border: darkcyan ;
+}
