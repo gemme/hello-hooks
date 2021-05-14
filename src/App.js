@@ -4,30 +4,34 @@ import { GoodExample } from "./components/GoodExample";
 import { Container } from "./components/Container";
 import { HookCounter } from "./components/HookCounter";
 import { ErrorBoundary } from "./components/ErrorBoundary";
+import { ThemeContext, themes } from "./components/theme-context";
 import "./App.css";
 import React from "react";
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: "hello world",
-      mount: false
+      mount: false,
     };
   }
 
-  /* render() {
-    return (
-        <ErrorBoundary>
-      <div className="App">
-          <GoodExample data={this.state.data} />
-          <Container data={this.state.data}/>
-      </div>
-        </ErrorBoundary>
-    );
-  } */
-
   render() {
+    return (
+      <ErrorBoundary>
+        <ThemeContext.Provider
+          value={themes.light}
+        >
+          <div className="App">
+            <GoodExample data={this.state.data} />
+            <Container data={this.state.data} theme={themes.dark}/>
+          </div>
+        </ThemeContext.Provider>
+      </ErrorBoundary>
+    );
+  }
+
+  /* render() {
     return (
       <div
         onClick={() => this.setState(prevState => {
@@ -39,17 +43,17 @@ class App extends React.Component {
       </div>
 
     ); 
-  }
+  } */
 
   componentDidMount() {
-    /* setInterval(() => {
+    setInterval(() => {
       console.log(this.state.data);
       this.setState((prevState) => {
         return {
           data: prevState.data + "z",
         };
       });
-    }, 3000); */
+    }, 3000);
   }
 }
 
